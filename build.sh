@@ -2,22 +2,11 @@
 
 TOOLCHAIN=aarch64-linux-gnu-
 
-if [ "$VERSION" = "2022" ]; then
-    UBOOT_DIR=uboot-mtk-20220606
-    ATF_DIR=atf-20220606-637ba581b
-elif [ "$VERSION" = "2023" ]; then
-    UBOOT_DIR=uboot-mtk-20230718-09eda825
-    ATF_DIR=atf-20231013-0ea67d76a
-elif [ "$VERSION" = "2024" ]; then
-    UBOOT_DIR=uboot-mtk-20230718-09eda825
-    ATF_DIR=atf-20240117-bacca82a8
-elif [ "$VERSION" = "2025" ]; then
-    UBOOT_DIR=uboot-mtk-20250711
-    ATF_DIR=atf-20250711
-else
-    echo "Error: Unsupported VERSION. Please specify VERSION=2022/2023/2024/2025."
-    exit 1
-fi
+TOOLCHAIN=aarch64-linux-gnu-
+#UBOOT_DIR=uboot-mtk-20220606
+UBOOT_DIR=uboot-mtk-20230718-09eda825
+#ATF_DIR=atf-20220606-637ba581b
+ATF_DIR=atf-20240117-bacca82a8
 
 if [ -z "$SOC" ] || [ -z "$BOARD" ]; then
     echo "Usage: SOC=[mt7981|mt7986] BOARD=<board name> VERSION=[2022|2023|2024|2025] $0"
