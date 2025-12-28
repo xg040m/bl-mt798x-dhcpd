@@ -2,7 +2,7 @@
 
 ifeq ($(CONFIG_SPL_BUILD),)
 
-obj-y += fsdata/
+obj-y += fsdata_/
 
 obj-y += fs.o failsafe.o
 
