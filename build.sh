@@ -91,10 +91,10 @@ make -C "$ATF_DIR" -f "$ATF_MKFILE" all CONFIG_CROSS_COMPILER="$TOOLCHAIN" CROSS
 
 mkdir -p "output"
 if [ -f "$ATF_DIR/build/${SOC}/release/fip.bin" ]; then
-		FIP_NAME="${SOC}_${BOARD}_${VERSION}-fip"
+		FIP_NAME="${SOC}_${BOARD}-fip"
 		# Append '-dhcpd' for VERSION 2023 or 2024
 		if [ "$VERSION" = "2023" ] || [ "$VERSION" = "2024" ]; then
-			FIP_NAME="${FIP_NAME}-dhcpd-Yuzhii"
+			FIP_NAME="${FIP_NAME}-dhcpd-QQ25358"
 		fi
 	if [ "$fixedparts" = "1" ]; then
 		FIP_NAME="${FIP_NAME}-fixed-parts"
@@ -110,7 +110,7 @@ else
 fi
 if grep -Eq "(^_|CONFIG_TARGET_ALL_NO_SEC_BOOT=y)" "$ATF_DIR/configs/$ATF_CFG"; then
 	if [ -f "$ATF_DIR/build/${SOC}/release/bl2.img" ]; then
-		BL2_NAME="${SOC}_${BOARD}_${VERSION}-bl2"
+		BL2_NAME="${SOC}_${BOARD}-bl2"
 		cp -f "$ATF_DIR/build/${SOC}/release/bl2.img" "output/${BL2_NAME}.bin"
 		echo "$BL2_NAME build done"
 	else
